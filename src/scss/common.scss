@@ -1,0 +1,9 @@
+*,*::after,**::before{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+ul,ol{
+   list-style: none;
+}
+h1,h2,h3,h4,h5{font-weight: normal;}
