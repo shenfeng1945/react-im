@@ -1,0 +1,29 @@
+@import '../../scss/varible.scss';
+.friends{
+    overflow-y: scroll;
+    &::-webkit-scrollbar{display: none;}
+    li{
+        padding:1rem;
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid $borderColor;
+        cursor: pointer;
+        &:hover{
+            background: rgba(0,0,0,.015);
+            color: rgba(0,0,0,.5);
+        }
+        .friend{
+            margin-left: 1rem;
+            .name{
+                font-weight: 700;
+            }
+            .lastMsg{
+               font-weight: 400;
+               margin-top: .2rem;
+               white-space: nowrap;
+               overflow: hidden;
+               text-overflow: ellipsis;
+            }
+        }
+    }
+}

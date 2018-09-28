@@ -1,0 +1,37 @@
+@import '../../scss/varible.scss';
+.search{
+    border-bottom: 1px solid $borderColor;
+    padding: 1rem;
+    position: relative;
+    .s-icon{
+        margin-right: 1rem;
+    }
+    .search-input{
+        position: relative;
+        .close{
+            position: absolute;
+            width: 1.5rem;
+            height: 1.5rem;
+            right: 0.5rem;
+            top:50%;
+            transform: translateY(-50%);
+            display: none;
+            cursor: pointer;
+        }
+        .isShowResult{
+            display: block;
+        }
+    }
+    .searchResult{
+        position: absolute;
+        bottom: -1rem;
+        left:0;
+        width: 100%;
+        transform: translateY(100%);
+        background: $background;
+        display: none;
+    }
+    .isShowResult{
+        display: block;
+    }
+}
