@@ -5,7 +5,7 @@ export default class SendMessage extends Component {
   render() {
     return (
       <form className="sendMessage">
-         <textarea cols="30" rows="10"></textarea>
+         <textarea cols="30" rows="10" placeholder="输入消息"></textarea>
          <button className="ui button primary send" type="submit">Send</button>
       </form>
     )
