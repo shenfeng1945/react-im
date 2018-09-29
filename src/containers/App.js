@@ -4,8 +4,13 @@ import Search from '../components/search'
 import './app.scss'
 import FriendLists from '../components/friends';
 import SendMessage from '../components/sendMessage';
+import {addCallback} from './actions'
+import {connect} from 'react-redux'
 
 class App extends Component {
+  componentWillMount(){
+      this.props.addCallback()
+  }
   render() {
     return (
       <div className="app">
@@ -20,4 +25,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect(null,{addCallback})(App);

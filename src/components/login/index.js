@@ -1,9 +1,10 @@
 import Login from './view'
 import loginReducer from './reducer'
+import action from './actions'
 
 export {
-   // actions
-   loginReducer
+    action,
+    loginReducer
 }
 
 export default Login;

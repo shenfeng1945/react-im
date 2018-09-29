@@ -107,4 +107,4 @@ WebIM.config = {
         type: 'none'
     }
 };
-window.WebIM = WebIm;
+window.WebIM = WebIM;

@@ -4,19 +4,17 @@ import NavBar from '../common/nav-bar'
 import './index.scss'
 import {connect} from 'react-redux'
 import {SignUpAction} from './actions'
+import {LoginAction} from '../login/actions'
 
 class Signup extends Component {
-  onSubmit = (data) => {
-      this.props.SignUpAction(data)
-  }
   render() {
     return (
       <div className="signup">
          <NavBar path={this.props.match.path}/>
-         <SignupForm signup={this.onSubmit}/>
+         <SignupForm signup={this.props.SignUpAction} login={this.props.LoginAction}/>
       </div>
     )
   }
 }
 
-export default connect(null,{SignUpAction})(Signup);
+export default connect(null,{SignUpAction,LoginAction})(Signup);

@@ -1,20 +1,8 @@
-import React, { Component } from 'react'
-import './index.scss'
+import Users from './view'
+import userReducer from './reducer'
 
-export default class Users extends Component {
-  render() {
-    return (
-      <div className="users">
-         <div className="avatar">
-            <img src="./test.jpg" alt=""/>
-         </div> 
-         <div className="username">
-            shenfeng1945
-         </div>
-         <div className="logout">
-            登出
-         </div>
-      </div>
-    )
-  }
+export {
+    userReducer,
 }
+
+export default Users;

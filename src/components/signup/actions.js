@@ -5,11 +5,12 @@ const DoSignup = (data) => {
             username,
             password,
             nickname: username,
-            appKey: WebIM.config.appkey,
-            success: (e) => { resolve(e) },
-            error: (e) => { reject(e) }
+            appKey: window.WebIM.config.appkey,
+            apiUrl: window.WebIM.config.apiURL,
+            success: (e) => { resolve(e)},
+            error: (e) => { reject(e)}
         }
-        WebIM.conn.registerUser(options);
+        window.WebIM.conn.registerUser(options);
     })
 }
 
@@ -18,4 +19,5 @@ export const SignUpAction = (data) => {
         DoSignup(data)
     )
 }
+
 

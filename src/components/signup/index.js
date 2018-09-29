@@ -1,7 +1,8 @@
 import SignUp from './view'
+import SignUpAction from './actions'
 
 export {
-    // actions
+    SignUpAction,
     // reducer
 }
 
