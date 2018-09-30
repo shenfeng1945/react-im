@@ -1,7 +1,6 @@
 import { setCookie } from '@utils/authorization'
 import { setLocal, getLocal } from '@utils/localStorage'
 import { USER_NAME } from '@utils/constants'
-import { createNotifi } from '../common/notification'
 
 const DoLogin = (data) => {
     return new Promise((resolve, reject) => {
@@ -12,7 +11,7 @@ const DoLogin = (data) => {
             pwd,
             appKey: window.WebIM.config.appkey,
             apiUrl: window.WebIM.config.apiURL,
-            success: (e) => { resolve(e);},
+            success: (e) => { resolve(e); },
             error: () => { reject() }
         }
         window.WebIM.conn.open(options);
@@ -27,8 +26,8 @@ const DoLoginByToken = (token) => {
             accessToken,
             appKey: window.WebIM.config.appkey,
             apiUrl: window.WebIM.config.apiURL,
-            success: () => { resolve() },
-            error: (e) => { reject() }
+            success: () => { resolve(),console.log('object') },
+            error: (e) => { reject() ,console.log('object')}
         }
         window.WebIM.conn.open(options);
     })
@@ -46,10 +45,7 @@ export const LoginAction = (data) => {
 }
 
 export const setCurrentUser = (token) => {
-    DoLoginByToken(token).then(_ => {
-        console.log('success')
-    }).catch(() => {
-        console.log('error')
-        createNotifi()
-    })
+    return dispatch => {
+        return DoLoginByToken(token)
+    }
 }

@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 
 class FriendLists extends Component {
   render() {
-     console.log(this.props.friendList,'props')
+    //  console.log(this.props.friendList,'props')
     return (
        <ul className="friends">
            <FriendItem />
