@@ -1,20 +1,19 @@
-
+import { FRIEND_LIST } from './actionTypes'
+import {createAction} from '../../utils/createAction'
+const setRosters = createAction(FRIEND_LIST,'rosters')
 const WebIM = window.WebIM;
-const getLists = () => {
-   return new Promise((resolve,reject) => {
-    WebIM.conn.getRoster({
-        success: (roster) => {
-            resolve(roster)
-        },
-        error: (e) => {
-            reject(e)
-        }
-    })
-   })
-    
-}
 export const getFriendList = () => {
-   return dispatch => {
-       return getLists()
-   }
+    return dispatch => {
+        return new Promise((resolve, reject) => {
+            WebIM.conn.getRoster({
+                success: (roster) => {
+                    dispatch(setRosters(roster))
+                    resolve(roster)
+                },
+                error: (e) => {
+                    reject(e)
+                }
+            })
+        })
+    }
 }

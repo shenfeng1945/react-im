@@ -1,0 +1,1 @@
+export const FRIEND_LIST = 'FRIEND_LIST'
