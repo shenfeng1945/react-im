@@ -38,6 +38,7 @@ class SingupForm extends Component {
                             this.setState({ loading: false })
                             this.context.router.history.push('/')
                             createNotifi('注册成功!')
+                            this.props.signupPost({username}).then((res)=>{})
                         }
                     }).catch(()=>{
                        createNotifi('注册失败!','error')

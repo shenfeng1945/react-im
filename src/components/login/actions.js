@@ -39,13 +39,12 @@ export const LoginAction = (data) => {
             const username = res.user.username
             setCookie(token)
             setLocal(USER_NAME, username)
+            console.log('ssss')
             return true;
         })
     )
 }
 
 export const setCurrentUser = (token) => {
-    return dispatch => {
-        return DoLoginByToken(token)
-    }
+    return DoLoginByToken(token)
 }

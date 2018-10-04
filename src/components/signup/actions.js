@@ -1,3 +1,4 @@
+import axios from 'axios'
 const DoSignup = (data) => {
     return new Promise((resolve, reject) => {
         const { username, password } = data;
@@ -10,6 +11,7 @@ const DoSignup = (data) => {
             success: (e) => { resolve(e)},
             error: (e) => { reject(e)}
         }
+        console.log(username,password)
         window.WebIM.conn.registerUser(options);
     })
 }
@@ -20,4 +22,9 @@ export const SignUpAction = (data) => {
     )
 }
 
+export const SignUpPost = (data) => {
+    return dispatch => {
+      return axios.post('/api/users/signup',data)
+    }
+}
 
