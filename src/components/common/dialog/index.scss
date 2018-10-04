@@ -1,0 +1,76 @@
+.clearfix::before{
+    content:'';
+    display: block;
+    clear:both;
+}
+.createFolder-Wrapper{
+    position: fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background:rgba(0,0,0,.3);
+    display: none;
+    justify-content: center;
+    align-items:center;
+    z-index:3;
+}
+.createFolder-Wrapper.active{
+    display: flex;
+}
+.createFolder-Wrapper >.createFolder{
+    background:white;
+    width:390px;
+    padding-bottom:15px;
+    border-radius: 5px;
+    position: relative;
+    .close{
+        position: absolute;
+        right:1rem;
+        top:1rem;
+        cursor: pointer;
+    }
+}
+
+.createFolder-Wrapper >.createFolder>h3{
+    text-align:center;
+    margin-top:15px;
+    margin-bottom:10px;
+    font-weight:normal;
+}
+.createFolder-Wrapper >.createFolder>input{
+    width:360px;
+    padding:10px;
+    margin:10px;
+    border:1px solid #bbb;
+    outline:none;
+}
+.createFolder-Wrapper >.createFolder>.createActions{
+    float:right;
+    margin-right:30px;
+}
+.createFolder-Wrapper >.createFolder>.createActions >.btn{
+   font-size:14px;
+    border-radius:4px;
+    outline:none;
+    cursor:pointer;
+    background:#fff;
+    white-space:nowrap;
+    line-height:1;
+    padding:10px 25px;
+    border:1px solid #c4c4c4;
+    margin-left:30px;
+}
+.createFolder-Wrapper >.createFolder>.createActions >.btn-enter{
+    color:#fff;
+    background-color:#20a0ff;
+    border-color:#20a0ff;
+}
+.createFolder-Wrapper >.createFolder>.createActions >.btn-enter:hover{
+   background:#4db3ff;
+    border-color:#4db3ff;
+}
+.createFolder-Wrapper >.createFolder>.createActions >.btn-cancel:hover{
+   color:#20a0ff;
+    border-color: #20a0ff;
+}
