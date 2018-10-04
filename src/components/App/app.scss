@@ -1,0 +1,32 @@
+@import '../../scss/varible.scss';
+.app{
+    display: grid;
+    height: 100%;
+    grid-template-columns: 300px 1fr;
+    grid-template-rows: 80px 1fr 160px;
+    grid-template-areas: 
+       "r a"
+       "n b"
+       "n c";
+}
+.users{
+    grid-area: r;
+}
+
+.left-side{
+    grid-area: n;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid $borderColor;
+    background: $background;
+    position: relative;
+}
+.sendMessage{
+    grid-area: c;
+}
+.chatPanel{
+    grid-area: b;
+}
+.chatUser{
+    grid-area: a;
+}
