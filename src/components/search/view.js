@@ -1,24 +1,45 @@
 import React, { Component } from 'react'
 import './index.scss'
 import classnames from 'classnames'
+import { connect } from 'react-redux';
+import { searchAction, addRoster } from './actions'
+import SearchList from './searchList'
+import { getLocal } from '../../utils/localStorage'
+import { USER_NAME } from '../../utils/constants'
 
-export default class Search extends Component {
+let timer = null
+class Search extends Component {
     constructor(props) {
         super(props)
         this.state = {
             text: '',
             isShowResult: false,
+            searchData: [],
+            username: getLocal(USER_NAME)
         }
     }
     showResult = () => {
         this.setState({ isShowResult: true })
     }
     hidenResult = () => {
-        this.setState({ isShowResult: false,text: ''})
+        this.setState({ isShowResult: false, text: '', searchData: [] })
     }
     handleChange = (e) => {
-       this.setState({[e.target.name]: e.target.value})
+
+        this.setState({ [e.target.name]: e.target.value })
+
+        if (timer) {
+            clearTimeout(timer)
+        }
+        timer = setTimeout(() => {
+            if (this.state.text) {
+                this.props.searchAction({ username: this.state.text }).then(res => {
+                    this.setState({ searchData: res.data.searchData.filter(item => item.username !== this.state.username) })
+                })
+            }
+        }, 1000)
     }
+
     render() {
         return (
             <div className="search">
@@ -33,21 +54,26 @@ export default class Search extends Component {
                         onChange={this.handleChange}
                         autoComplete="off"
                         placeholder="搜索或添加好友" />
-                    <svg className={classnames('icon close',{isShowResult: this.state.isShowResult})}
-                         onClick={this.hidenResult}
-                         >
+                    <svg className={classnames('icon close', { isShowResult: this.state.isShowResult })}
+                        onClick={this.hidenResult}
+                    >
                         <use xlinkHref="#icon-close"></use>
                     </svg>
                 </div>
                 <div className={classnames('searchResult', { isShowResult: this.state.isShowResult })}>
-                    <div>哈哈哈哈撒旦法</div>
-                    <div>哈哈哈哈撒旦法</div>
-                    <div>哈哈哈哈撒旦法</div>
-                    <div>哈哈哈哈撒旦法</div>
-                    <div>哈哈哈哈撒旦法</div>
-                    <div>哈哈哈哈撒旦法</div>
+                    {
+                        this.state.searchData.length ?
+                            <SearchList searchData={this.state.searchData} addRoster={this.props.addRoster} friendList={this.props.friendList} /> :
+                            <div className="empty-data">暂无好友数据</div>
+                    }
                 </div>
             </div>
         )
     }
 }
+const mapStateToProps = (state) => {
+    return {
+        friendList: state.friendsReducer
+    }
+}
+export default connect(mapStateToProps, { searchAction, addRoster })(Search)

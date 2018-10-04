@@ -2,7 +2,6 @@
 .search{
     border-bottom: 1px solid $borderColor;
     padding: 1rem;
-    position: relative;
     .s-icon{
         margin-right: 1rem;
     }
@@ -24,14 +23,42 @@
     }
     .searchResult{
         position: absolute;
-        bottom: -1rem;
+        top:77px;
+        bottom: 0rem;
         left:0;
         width: 100%;
-        transform: translateY(100%);
+        // transform: translateY(100%);
         background: $background;
         display: none;
     }
     .isShowResult{
         display: block;
+    }
+    .empty-data{
+        text-align: center;
+        margin-top:1rem;
+    }
+    .searchList{
+        height: 100%;
+        overflow-y: scroll;
+        &::-webkit-scrollbar{display: none;}
+        li{
+            padding: 1rem;
+            border-bottom: 1px solid $borderColor;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .f-user{
+                display: flex;
+                align-items: center;
+                .avatar{
+                   margin-right: 1rem;
+                  
+                }
+                .name{
+                    font-weight: 700;
+                 }
+            }
+        }
     }
 }
