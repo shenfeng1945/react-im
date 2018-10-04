@@ -1,3 +1,4 @@
+// import {getFriendList} from '../components/friends/actions'
 const WebIM = window.WebIM;
 const conn = new WebIM.connection({
     isMultiLoginSessions: WebIM.config.isMultiLoginSessions,
@@ -13,14 +14,5 @@ const conn = new WebIM.connection({
     encrypt: WebIM.config.encrypt,
     delivery: WebIM.config.delivery
 });
-conn.listen({
-    onOpened: () => {
-    },
-    onRoster: () => {
-    },
-    onPresence: () => {
-    },
-    onTextMessage: () => {
-    },
-})
+
 window.WebIM.conn = conn;
