@@ -3,7 +3,7 @@ import { deleteCookie } from '../../utils/authorization'
 const WebIM = window.WebIM;
 export const Logout = () => {
     WebIM.conn.close();
-    deleteCookie('token');
+    // deleteCookie('token');
     return {
         type: AUTHORIZATION,
         isAuthorization: true
