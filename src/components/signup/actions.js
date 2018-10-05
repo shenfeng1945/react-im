@@ -11,7 +11,6 @@ const DoSignup = (data) => {
             success: (e) => { resolve(e)},
             error: (e) => { reject(e)}
         }
-        console.log(username,password)
         window.WebIM.conn.registerUser(options);
     })
 }

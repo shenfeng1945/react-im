@@ -7,6 +7,8 @@ import SendMessage from '../sendMessage';
 import { connect } from 'react-redux'
 import { initSDK } from './actions'
 import Dialog from '../common/dialog'
+import ChatPanel from '../chatPanel'
+import ChatUser from '../chatUser'
 
 class App extends Component {
   componentDidMount() {
@@ -21,6 +23,8 @@ class App extends Component {
           <Search />
           <FriendLists />
         </div>
+        <ChatPanel />
+        <ChatUser />
         <SendMessage />
         <Dialog />
       </div>

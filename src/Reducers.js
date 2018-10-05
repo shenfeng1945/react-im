@@ -1,12 +1,15 @@
 import {combineReducers} from 'redux'
 import {loginReducer} from './components/login'
 import userReducer from './components/users/reducer'
-import friendsReducer from './components/friends/reducer'
+import {friendListReducer,selectFriendReducer} from './components/friends/reducer'
+import chatPanelReducer from './components/chatPanel/reducer'
 
 import './utils/initSDK'
 
 export default combineReducers({
     loginReducer,
     userReducer,
-    friendsReducer
+    friendListReducer,
+    selectFriendReducer,
+    chatPanelReducer
 })
