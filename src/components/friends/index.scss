@@ -14,15 +14,19 @@
         }
         .friend{
             margin-left: 1rem;
+            height: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
             .name{
                 font-weight: 700;
             }
             .lastMsg{
                font-weight: 400;
-               margin-top: .2rem;
                white-space: nowrap;
                overflow: hidden;
                text-overflow: ellipsis;
+               font-size: 12px;
             }
         }
     }

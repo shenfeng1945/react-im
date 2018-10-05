@@ -1,12 +1,25 @@
-import {FRIEND_LIST} from './actionTypes'
+import { FRIEND_LIST, SELECT_USER } from './actionTypes'
 
-export default (state = [], action = {}) => {
+
+export const friendListReducer = (state = [], action = {}) => {
   switch (action.type) {
-  case FRIEND_LIST:
-    return [
-      ...action.payload.rosters
-    ]
-  default:
-    return state
+    case FRIEND_LIST:
+      return [
+          ...action.payload.rosters
+        ]
+    default:
+      return state
   }
 }
+
+export const selectFriendReducer = (state = {}, action = {}) => {
+  switch (action.type) {
+    case SELECT_USER:
+      return {
+        name: action.name,
+      }
+    default:
+      return state
+  }
+}
+
