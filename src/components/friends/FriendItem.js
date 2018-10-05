@@ -1,15 +1,12 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { selectUser } from './actions'
-import { connect } from 'react-redux'
+import classNames from 'classnames'
 
 class FriendItem extends Component {
-    selectCurrentUser = () => {
-        this.props.selectUser(this.props.item)
-    }
     render() {
+        const {currIndex,active} = this.props
         return (
-            <li onClick={this.selectCurrentUser}>
+            <li onClick={() => this.props.selectCurrentUser(currIndex)} className={classNames({active})}>
                 <div className="avatar">
                     <img src="./user.jpg" alt="React" />
                 </div>
@@ -28,4 +25,4 @@ class FriendItem extends Component {
 FriendItem.propTypes = {
     item: PropTypes.object
 }
-export default connect(null, { selectUser })(FriendItem)
+export default FriendItem

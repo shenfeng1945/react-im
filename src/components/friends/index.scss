@@ -12,6 +12,13 @@
             background: rgba(0,0,0,.015);
             color: rgba(0,0,0,.5);
         }
+        &.active{
+            background: rgba(0,0,0,.05);
+        }
+        &.active:hover{
+            background: rgba(0,0,0,.05);
+            color: rgba(0,0,0,.87);
+        }
         .friend{
             margin-left: 1rem;
             height: 40px;
