@@ -1,11 +1,19 @@
 import React, { Component } from 'react'
+import './index.scss'
+import { connect } from 'react-redux';
 
-export default class ChatUser extends Component {
+class ChatUser extends Component {
   render() {
     return (
-      <div className="chatUser">
-        React 
-      </div>
+      <h1 className="chatUser">
+         {this.props.name} 
+      </h1>
     )
   }
 }
+const mapStateToProps = (state) => {
+  return {
+    name: state.selectFriendReducer.name
+  }
+}
+export default connect(mapStateToProps)(ChatUser)

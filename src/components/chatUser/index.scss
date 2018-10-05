@@ -1,0 +1,9 @@
+@import '../../scss/varible';
+.chatUser{
+   border-bottom: 1px solid $borderColor;
+   font-size: 1.38rem;
+   color: rgba(0,0,0,.62);
+   display: flex;
+   align-items: center;
+   padding-left: 1rem;
+}
