@@ -26,8 +26,8 @@ const DoLoginByToken = (token) => {
             accessToken,
             appKey: window.WebIM.config.appkey,
             apiUrl: window.WebIM.config.apiURL,
-            success: () => { resolve(),console.log('object') },
-            error: (e) => { reject() ,console.log('object')}
+            success: () => { resolve()},
+            error: () => { reject()}
         }
         window.WebIM.conn.open(options);
     })

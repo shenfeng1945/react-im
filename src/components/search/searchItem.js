@@ -1,13 +1,9 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 import { connect } from 'react-redux';
 import classNames from 'classnames'
 import {IpUrl} from '../../utils/constants'
 
 class SearchItem extends Component {
-    static propTypes = {
-        // friendItem: PropTypes.object.isRequired
-    }
     constructor(props) {
         super(props)
         this.state = {
