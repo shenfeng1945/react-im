@@ -10,7 +10,7 @@ const handleMessage = (message) => {
     }
 }
 export const sendTextMessage = ({ to, text }) => {
-    return dispatch => {
+    return (dispatch,getState) => {
         return new Promise((resolve, reject) => {
             var id = WebIM.conn.getUniqueId();                 // 生成本地消息id
             var msg = new WebIM.message('txt', id);      // 创建文本消息
@@ -21,6 +21,7 @@ export const sendTextMessage = ({ to, text }) => {
                 success: function () {
                     msg.from = getLocal(USER_NAME)
                     msg.to = to
+                    msg.avatar = getState().userAvatarReducer.userAvatar
                     dispatch(handleMessage(msg))
                     resolve()
                 },
