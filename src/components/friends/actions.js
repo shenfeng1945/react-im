@@ -1,4 +1,4 @@
-import { FRIEND_LIST, SELECT_USER} from './actionTypes'
+import { FRIEND_LIST, SELECT_USER ,FRIEND_AVATAR} from './actionTypes'
 import {createAction} from '../../utils/createAction'
 const setRosters = createAction(FRIEND_LIST,'rosters')
 const WebIM = window.WebIM;
@@ -47,4 +47,11 @@ export const changeRostersWithMsg = (message) => {
         })
         dispatch(setRosters(newRosters))
     }
+}
+
+export const setFriendAvatar = (data) => {
+   return {
+       type: FRIEND_AVATAR,
+       data
+   }
 }

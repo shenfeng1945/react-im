@@ -1,2 +1,3 @@
 export const FRIEND_LIST = 'FRIEND_LIST'
 export const SELECT_USER = 'SELECT_USER'
+export const FRIEND_AVATAR = 'FRIEND_AVATAR'
