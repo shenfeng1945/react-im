@@ -1,5 +1,6 @@
 const express = require('express')
 const users = require('./routes/users')
+const avatar = require('./routes/avatar')
 const cors = require('cors')
 const bodyParser = require('body-parser') 
 const mongoose = require('mongoose')
@@ -13,11 +14,12 @@ mongoose.connect('mongodb://shenfeng1945:shenfeng1945@ds239911.mlab.com:39911/re
     }
 })
 
-
 app.use(bodyParser.json())
 app.use(cors())
+// app.use(express.static('public'));
 
 app.use('/api/users',users)
+// app.use('/public/uploadImg',avatar)
 
 app.listen(6060,()=>console.log('localhost:6060'))
 
