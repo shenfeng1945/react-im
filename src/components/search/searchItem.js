@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import classNames from 'classnames'
-import {IpUrl} from '../../utils/constants'
+import { IpUrl } from '../../utils/constants'
+import eventEmitter from '../../utils/event'
 
 class SearchItem extends Component {
     constructor(props) {
@@ -18,34 +19,37 @@ class SearchItem extends Component {
         })
     }
     render() {
-        const {username,avatar} = this.props.searchItem 
+        const { username, avatar } = this.props.searchItem
         const firstName = username.charAt(0).toUpperCase()
         const addFriend = (
             <div className="ui button green mini"
-                onClick={() => this.props.addRoster(username)}>
+                onClick={() => {
+                    this.props.addRoster(username)
+                    eventEmitter.emit('toggleLeft',true)
+                }}>
                 加为好友</div>
         )
         const isFriend = (
             <div className="ui button gray mini">
-                    已为好友</div>
+                已为好友</div>
         )
         return (
             <li>
                 <div className="f-user">
-                    <div className={classNames('avatar',{'no-avatar-f':!avatar})}>
+                    <div className={classNames('avatar', { 'no-avatar-f': !avatar })}>
                         {
                             avatar ?
-                            <img src={`${IpUrl}/${avatar}`} alt="" /> :
-                            firstName
+                                <img src={`${IpUrl}/${avatar}`} alt="" /> :
+                                firstName
                         }
-                        
+
                     </div>
                     <div className="name">{username}</div>
                 </div>
                 {
                     this.state.isFriend ?
-                    isFriend :
-                    addFriend 
+                        isFriend :
+                        addFriend
                 }
 
             </li>

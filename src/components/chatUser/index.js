@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './index.scss'
 import { connect } from 'react-redux';
 import {toggleLeftSide} from './actions'
+import eventEmitter from '../../utils/event'
 
 class ChatUser extends Component {
    constructor(){
@@ -13,6 +14,7 @@ class ChatUser extends Component {
   toggleLeftSide = () => {
     this.props.toggleLeftSide(!this.state.showLeftSide)
     this.setState({showLeftSide: !this.state.showLeftSide})
+    eventEmitter.emit('toggleLeft',true)
   }
   componentWillUnmount(){
     this.toggleLeftSide()

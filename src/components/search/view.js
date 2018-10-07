@@ -6,6 +6,7 @@ import { searchAction, addRoster } from './actions'
 import SearchList from './searchList'
 import { getLocal } from '../../utils/localStorage'
 import { USER_NAME } from '../../utils/constants'
+import eventEmitter from '../../utils/event'
 
 let timer = null
 class Search extends Component {
@@ -18,10 +19,13 @@ class Search extends Component {
             username: getLocal(USER_NAME)
         }
     }
+    componentWillMount(){
+        eventEmitter.on('toggleLeft',this.hidenResult)
+    }
     showResult = () => {
         this.setState({ isShowResult: true })
     }
-    hidenResult = () => {
+    hidenResult = (val) => {
         this.setState({ isShowResult: false, text: '', searchData: [] })
     }
     handleChange = (e) => {
