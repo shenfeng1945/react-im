@@ -4,7 +4,7 @@ import Loading from '@components/common/loading'
 import classNames from 'classnames'
 import { checkSignupRequest } from '../../utils/checkLoginOrSignup'
 import { isEmpty } from '../../utils/lodash'
-import {createNotifi} from '../common/notification'
+import { createNotifi } from '../common/notification'
 
 class SingupForm extends Component {
     constructor(props) {
@@ -32,25 +32,27 @@ class SingupForm extends Component {
         this.props.signup({ username, password }).then(
             (result) => {
                 if (result.entities.length) {
-                    // 登录
-                    this.props.login({ username, password }).then(res => {
-                        if (res) {
-                            this.setState({ loading: false })
-                            this.context.router.history.push('/')
-                            createNotifi('注册成功!')
-                            this.props.signupPost({username}).then((res)=>{})
-                        }
-                    }).catch(()=>{
-                       createNotifi('注册失败!','error')
-                       this.setState({loading:false,password: '',conPassword:''})
+                    // 后台生成账号
+                    this.props.signupPost({ username }).then(_ => {
+                        // 登录
+                        this.props.login({ username, password }).then(res => {
+                            if (res) {
+                                this.setState({ loading: false })
+                                this.context.router.history.push('/')
+                                createNotifi('注册成功!')
+                            }
+                        }).catch(() => {
+                            createNotifi('注册失败!', 'error')
+                            this.setState({ loading: false, password: '', conPassword: '' })
+                        })
                     })
                 }
             },
             (error) => {
-               if(error.type === 17){
-                    createNotifi('该用户已存在','error')
-                    this.setState({loading:false,password: '',conPassword:'',username: ''})
-               }
+                if (error.type === 17) {
+                    createNotifi('该用户已存在', 'error')
+                    this.setState({ loading: false, password: '', conPassword: '', username: '' })
+                }
             }
         )
     }

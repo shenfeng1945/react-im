@@ -10,5 +10,5 @@ export const createNotifi = (text= '',type = 'success') => {
    document.body.appendChild(dom)
    setTimeout(()=>{
      document.body.removeChild(dom)
-   },1000)
+   },2000)
 }

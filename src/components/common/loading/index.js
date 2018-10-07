@@ -13,10 +13,6 @@ const Rotate = styled.div`
   animation: ${rotate360} 1.5s linear infinite;
   width: 100px;
   height: 100px;
-  position:absolute;
-  left:50%;
-  top:50%;
-  transform: translate(-50%,-50%);
 `
 class Loading extends Component {
     static propTypes = {
@@ -33,6 +29,9 @@ class Loading extends Component {
                     right: 0,
                     bottom: 0,
                     background: 'rgba(0,0,0,0.3)',
+                    display: 'flex',
+                    alignItems:'center',
+                    justifyContent: 'center'
                 }}>
                     <Rotate>
                         <svg style={{ width: '100%', height: '100%' }}>

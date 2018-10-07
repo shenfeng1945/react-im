@@ -8,16 +8,9 @@ import store from './Store'
 import { setCurrentUser } from './components/login/actions'
 import { getCookie } from './utils/authorization'
 
-
 if (getCookie()) {
-    setCurrentUser(getCookie()).then(res => {
-        console.log(res, 'success')
-    }).catch(res => {
-        console.log(res, 'error')
-    })
-}else{
+    setCurrentUser(getCookie())
 }
-
 
 ReactDOM.render(
     <Provider store={store}>

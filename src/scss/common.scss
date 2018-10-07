@@ -1,3 +1,4 @@
+@import './varible.scss';
 *,*::after,**::before{
     margin:0;
     padding:0;
@@ -8,7 +9,7 @@ ul,ol{
    padding:0;
    margin: 0;
 }
-h1,h2,h3,h4,h5{font-weight: normal;}
+h1,h2,h3,h4,h5,p{font-weight: normal;margin:0;padding:0;}
 body,html,#root{
     height: 100%;
     font-family: 'sans-serif';
@@ -44,6 +45,27 @@ html{
        vertical-align: middle;
        border-radius: 5px;
     }
+}
+.no-avatar-u{
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: $userAvatar;
+    cursor: pointer;
+}
+.no-avatar-f{
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: $friendAvatar;
+    cursor: pointer;
+    color: #fff;
 }
 .notification{
     min-width: 30%;

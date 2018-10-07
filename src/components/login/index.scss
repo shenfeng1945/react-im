@@ -6,3 +6,11 @@
         margin:30px auto 0;
     }
 }
+
+@media (max-width: 640px) {
+    .login{
+        form{
+            width: 75%;
+        }
+    }
+}

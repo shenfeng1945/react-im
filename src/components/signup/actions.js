@@ -1,4 +1,5 @@
 import axios from 'axios'
+import {url} from '../../utils/constants'
 const DoSignup = (data) => {
     return new Promise((resolve, reject) => {
         const { username, password } = data;
@@ -23,7 +24,7 @@ export const SignUpAction = (data) => {
 
 export const SignUpPost = (data) => {
     return dispatch => {
-      return axios.post('/api/users/signup',data)
+      return axios.post(`${url}/api/users/signup`,data)
     }
 }
 
