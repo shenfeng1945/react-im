@@ -3,7 +3,7 @@
     border-bottom: 1px solid $borderColor;
     padding: 1rem;
     .s-icon{
-        margin-right: 1rem;
+        margin-right: 0.7rem;
     }
     .search-input{
         position: relative;
@@ -23,7 +23,7 @@
     }
     .searchResult{
         position: absolute;
-        top:77px;
+        top:160px;
         bottom: 0rem;
         left:0;
         width: 100%;

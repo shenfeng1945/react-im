@@ -1,9 +1,10 @@
+import {url} from '../../utils/constants'
 import axios from "axios";
 import {createNotifi} from '../common/notification'
 const WebIM = window.WebIM
 export const searchAction = (data) => {
     return dispatch => {
-        return axios.post('/api/users/search', data)
+        return axios.post(`${url}/api/users/search`, data)
     }
 }
 export const addRoster = (name) => {

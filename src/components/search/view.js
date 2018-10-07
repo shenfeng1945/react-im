@@ -37,7 +37,7 @@ class Search extends Component {
                     this.setState({ searchData: res.data.searchData.filter(item => item.username !== this.state.username) })
                 })
             }
-        }, 1000)
+        }, 600)
     }
 
     render() {
@@ -63,7 +63,7 @@ class Search extends Component {
                 <div className={classnames('searchResult', { isShowResult: this.state.isShowResult })}>
                     {
                         this.state.searchData.length ?
-                            <SearchList searchData={this.state.searchData} addRoster={this.props.addRoster} friendList={this.props.friendList} /> :
+                            <SearchList searchData={this.state.searchData} addRoster={this.props.addRoster}/> :
                             <div className="empty-data">暂无好友数据</div>
                     }
                 </div>
@@ -71,9 +71,5 @@ class Search extends Component {
         )
     }
 }
-const mapStateToProps = (state) => {
-    return {
-        friendList: state.friendsReducer
-    }
-}
-export default connect(mapStateToProps, { searchAction, addRoster })(Search)
+
+export default connect(null, { searchAction, addRoster })(Search)

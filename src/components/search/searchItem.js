@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux';
+import classNames from 'classnames'
+import {IpUrl} from '../../utils/constants'
 
-export default class SearchItem extends Component {
+class SearchItem extends Component {
     static propTypes = {
         // friendItem: PropTypes.object.isRequired
     }
@@ -19,7 +22,8 @@ export default class SearchItem extends Component {
         })
     }
     render() {
-        const {username} = this.props.searchItem 
+        const {username,avatar} = this.props.searchItem 
+        const firstName = username.charAt(0).toUpperCase()
         const addFriend = (
             <div className="ui button green mini"
                 onClick={() => this.props.addRoster(username)}>
@@ -32,8 +36,13 @@ export default class SearchItem extends Component {
         return (
             <li>
                 <div className="f-user">
-                    <div className="avatar">
-                        <img src="./user.jpg" alt="React" />
+                    <div className={classNames('avatar',{'no-avatar-f':!avatar})}>
+                        {
+                            avatar ?
+                            <img src={`${IpUrl}/${avatar}`} alt="" /> :
+                            firstName
+                        }
+                        
                     </div>
                     <div className="name">{username}</div>
                 </div>
@@ -47,3 +56,9 @@ export default class SearchItem extends Component {
         )
     }
 }
+const mapStateToProps = (state) => {
+    return {
+        friendList: state.friendListReducer
+    }
+}
+export default connect(mapStateToProps)(SearchItem)

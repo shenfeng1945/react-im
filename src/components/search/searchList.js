@@ -16,7 +16,6 @@ export default class SearchList extends Component {
                 {this.props.searchData.map(item => (
                     <SearchItem key={item._id} 
                                 searchItem={item} 
-                                friendList ={this.props.friendList} 
                                 addRoster={this.handleAddRoster}/>
                 ))}
             </ul>
