@@ -8,6 +8,10 @@ export const getFriendList = () => {
         return new Promise((resolve, reject) => {
             WebIM.conn.getRoster({
                 success: (roster) => {
+                    // 添加好友请求后，有subscription为'none',是无效的
+                    roster = roster.filter((item) => {
+                        return item.subscription === 'both';
+                    });
                     dispatch(setRosters(roster))
                     resolve(roster)
                 },
