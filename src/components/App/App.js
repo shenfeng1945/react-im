@@ -25,11 +25,10 @@ class App extends Component {
           <FriendLists />
         </div>
         <div className="right-side">
-          <ChatPanel />
           <ChatUser />
+          <ChatPanel />
           <SendMessage />
         </div>
-
         <Dialog />
       </div>
     );

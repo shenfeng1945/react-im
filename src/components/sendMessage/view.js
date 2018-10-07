@@ -13,6 +13,11 @@ class SendMessage extends Component {
   }
   sendMessage = (e) => {
     e.preventDefault()
+    if(!this.props.friendList.length){
+      createNotifi('暂无好友，发送无效!','error')
+      this.setState({text: ''})
+      return ;
+    }
     if (this.state.text === '') {
       createNotifi('消息不可为空', 'warn')
       return;
@@ -44,14 +49,15 @@ class SendMessage extends Component {
           value={this.state.text}
           onChange={this.handleChange}
           placeholder="输入消息 Enter发送"></textarea>
-        <button className="ui button primary send" type="submit">Send</button>
+        <button className="ui button primary send" type="submit" disabled={this.props.friendList.length === 0}>Send</button>
       </form>
     )
   }
 }
 const mapStateToProps = (state) => {
   return {
-    name: state.selectFriendReducer.name
+    name: state.selectFriendReducer.name,
+    friendList: state.friendListReducer
   }
 }
 export default connect(mapStateToProps, { sendTextMessage })(SendMessage)

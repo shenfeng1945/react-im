@@ -2,47 +2,36 @@
 .app{
    display: flex;
    height: 100%;
-
 }
 .left-side{
     width: 300px;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 80px 80px 1fr;
+    display: flex;
+    flex-direction: column;
     border-right: 1px solid $borderColor;
     background: $background;
     position: relative;
-    grid-template-areas: 
-      "a"
-      "b"
-      "c";
     .users{
-       grid-area: a; 
+       height: 80px;
     }
     .search{
-        grid-area: b;
+       height: 80px;
     }
     .friends{
-        grid-area: c;
+        flex:1;
     }
 }
 .right-side{
     flex:1;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 80px 1fr 160px;
-    grid-template-areas: 
-      "d"
-      "e"
-      "f";
+    display: flex;
+    flex-direction: column;
     .sendMessage{
-        grid-area: f;
+        height: 160px;
     }
     .chatPanel{
-        grid-area: e;
+        flex: 1;
     }
     .chatUser{
-        grid-area: d;
+        height: 80px;
     }
 }
 
