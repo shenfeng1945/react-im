@@ -1,0 +1,33 @@
+.chatPanel{
+    overflow-y: scroll;
+    li{
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding: 0.5rem;
+        .showMsg{
+            background: rgba(0, 0, 0, 0.05);
+            padding: .5em;
+            border-radius: 5px;
+            max-width: 50%;
+            margin-left: .5rem;
+            min-height: 40px;
+            word-break: break-all;
+         }
+    }
+    .user{
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: row-reverse;
+        align-items: flex-start;
+       .showMsg{
+          background: #98E165;
+          padding: .5em;
+          border-radius: 5px;
+          max-width: 50%;
+          margin-right: .5rem;
+          min-height: 40px;
+          word-break: break-all;
+       }
+    }
+}

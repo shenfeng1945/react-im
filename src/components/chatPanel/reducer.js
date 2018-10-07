@@ -4,17 +4,17 @@ const initialState = {
 }
 // 发送成功后，修改列表
 const addMsgListBySend = (msgList, message) => {
-  const { from, value, id, to } = message
+  const { from, value, id, to, avatar } = message
   let list = msgList[to] || []
-  list.push({ to, from, value, id })
+  list.push({ to, from, value, id, avatar })
   msgList[to] = list
   return Object.assign({}, msgList)
 }
 // 有消息回调，修改列表
 const addMsgListByGet = (msgList, message) => {
-  const { from, data, id, to } = message
+  const { from, data, id, to, avatar} = message
   let list = msgList[from] || []
-  list.push({ to, from, value: data, id })
+  list.push({ to, from, value: data, id ,avatar})
   msgList[from] = list
   return Object.assign({}, msgList)
 }
