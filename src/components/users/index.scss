@@ -3,17 +3,57 @@
     display: flex;
     align-items: center;
     padding: 1rem;
-    border: 1px solid $borderColor;
+    border-bottom: 1px solid $borderColor;
     background: $background;
     .avatar{
         width:40px;
         height: 40px;
         vertical-align: middle;
+        cursor: pointer;
         img{
             border-radius: 5px;
             width:100%;
             height: 100%;
         }
+    }
+    .no-avatar{
+        width:40px;
+        height: 40px;
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: $userAvatar;
+        cursor: pointer;
+    }
+    .u-avatar{
+        position: relative;
+        label{
+            position: absolute;
+            top:0;right:0;
+            bottom:0;left:0;
+            width:200%;
+            height: 200%;
+            background: rgba(0,0,0,.2);
+            color:#fff;
+            font-size: 12px;
+            display: none;
+            transform: scale(.5);
+            transform-origin: 0 0;
+            justify-content: center;
+            align-items: center;
+            border-radius: 5px;
+        }
+        &:hover{
+           label{
+               display: flex;
+           }
+        }
+    }
+    .user{
+        display: flex;
+        flex: 1;
+        justify-content: space-between;
     }
     .username{
         color: $color;
@@ -23,5 +63,6 @@
     }
     .logout{
         color: green;
+        cursor: pointer;
     }
 }

@@ -1,1 +1,2 @@
 export const AUTHORIZATION = 'AUTHORIZATION';
+export const USER_AVATAR = 'USER_AVATAR'
