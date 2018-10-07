@@ -5,6 +5,7 @@ const cors = require('cors')
 const bodyParser = require('body-parser') 
 const mongoose = require('mongoose')
 const https = require('https')
+const fs = require('fs')
 const app = express()
 
 mongoose.connect('mongodb://shenfeng1945:shenfeng1945@ds239911.mlab.com:39911/reac-im',(error)=>{
