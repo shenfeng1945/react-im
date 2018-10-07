@@ -1,32 +1,64 @@
 @import '../../scss/varible.scss';
 .app{
-    display: grid;
-    height: 100%;
-    grid-template-columns: 300px 1fr;
-    grid-template-rows: 80px 1fr 160px;
-    grid-template-areas: 
-       "r a"
-       "n b"
-       "n c";
-}
-.users{
-    grid-area: r;
-}
+   display: flex;
+   height: 100%;
 
+}
 .left-side{
-    grid-area: n;
-    display: flex;
-    flex-direction: column;
+    width: 300px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 80px 80px 1fr;
     border-right: 1px solid $borderColor;
     background: $background;
     position: relative;
+    grid-template-areas: 
+      "a"
+      "b"
+      "c";
+    .users{
+       grid-area: a; 
+    }
+    .search{
+        grid-area: b;
+    }
+    .friends{
+        grid-area: c;
+    }
 }
-.sendMessage{
-    grid-area: c;
+.right-side{
+    flex:1;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 80px 1fr 160px;
+    grid-template-areas: 
+      "d"
+      "e"
+      "f";
+    .sendMessage{
+        grid-area: f;
+    }
+    .chatPanel{
+        grid-area: e;
+    }
+    .chatUser{
+        grid-area: d;
+    }
 }
-.chatPanel{
-    grid-area: b;
-}
-.chatUser{
-    grid-area: a;
+
+
+@media (max-width: 640px){
+    .left-side{
+        position: absolute;
+        left: -300px;
+        width: 300px;
+        height: calc(100vh - 80px);
+        top: 80px;
+        transform: translateX(0);
+        transition: transform .5s ease;
+    }
+    .left-side.show{
+        transform: translateX(300px);
+    }
+    
 }

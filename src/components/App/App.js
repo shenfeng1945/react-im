@@ -9,6 +9,7 @@ import { initSDK } from './actions'
 import Dialog from '../common/dialog'
 import ChatPanel from '../chatPanel'
 import ChatUser from '../chatUser'
+import classNames from 'classnames'
 
 class App extends Component {
   componentDidMount() {
@@ -18,17 +19,25 @@ class App extends Component {
   render() {
     return (
       <div className="app">
-        <Users />
-        <div className="left-side">
+        <div className={classNames('left-side',{show: this.props.isShowLeftSide})}>
+          <Users />
           <Search />
           <FriendLists />
         </div>
-        <ChatPanel />
-        <ChatUser />
-        <SendMessage />
+        <div className="right-side">
+          <ChatPanel />
+          <ChatUser />
+          <SendMessage />
+        </div>
+
         <Dialog />
       </div>
     );
   }
 }
-export default connect(null, { initSDK })(App);
+const mapStateToProps = (state) => {
+  return {
+    isShowLeftSide: state.chatUserReducer.isShowLeftSide
+  }
+}
+export default connect(mapStateToProps, { initSDK })(App);
