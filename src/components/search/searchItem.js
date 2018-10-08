@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import classNames from 'classnames'
-import { IpUrl } from '../../utils/constants'
 import eventEmitter from '../../utils/event'
 
 class SearchItem extends Component {
@@ -39,7 +38,7 @@ class SearchItem extends Component {
                     <div className={classNames('avatar', { 'no-avatar-f': !avatar })}>
                         {
                             avatar ?
-                                <img src={`${IpUrl}/${avatar}`} alt="" /> :
+                                <img src={avatar} alt="" /> :
                                 firstName
                         }
 
