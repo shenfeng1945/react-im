@@ -98,7 +98,7 @@ class Users extends Component {
             </div>
         )
         if (!this.props.isAuthorization) {
-            if (ismobile) {
+            if (ismobile()) {
                 return (
                     <div className="users">
                         {
