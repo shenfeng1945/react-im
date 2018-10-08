@@ -1,3 +1,4 @@
+import {url} from './constants'
 const dataURItoBlob = (dataURI) => {
     const binary = atob(dataURI.split(',')[1]);
     const array = [];
@@ -8,9 +9,9 @@ const dataURItoBlob = (dataURI) => {
 }
 const upload = (formData) => {
     return new Promise((resolve, reject) => {
-        const url = 'http://127.0.0.1:6060/api/users/avatar'
+        const url1 = `${url}/api/users/avatar`
         const request = new XMLHttpRequest();
-        request.open('post', url)
+        request.open('post', url1)
         request.send(formData);
         request.onreadystatechange = () => {
             if (request.readyState === 4) {

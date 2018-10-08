@@ -7,7 +7,8 @@ import { getLocal } from '../../utils/localStorage'
 import { USER_NAME } from '../../utils/constants'
 import { getCookie, deleteCookie } from '../../utils/authorization'
 import { uploadImg } from '../../utils/upload'
-import { getAvatar,setUserAvatar } from './actions'
+import { getAvatar, setUserAvatar } from './actions'
+import ismobile from '../../utils/ismobile'
 
 const inputStyle = {
     display: 'none'
@@ -28,13 +29,13 @@ class Users extends Component {
         }
         if (username) {
             this.props.getAvatar(username)
-            .then(res => {
-                if (res.data.avatar) {
-                    this.setState({ avatar: res.data.avatar })
-                }
-                this.setState({loaded:true})
-                this.props.setUserAvatar(res.data.avatar)
-            })
+                .then(res => {
+                    if (res.data.avatar) {
+                        this.setState({ avatar: res.data.avatar })
+                    }
+                    this.setState({ loaded: true })
+                    this.props.setUserAvatar(res.data.avatar)
+                })
         }
 
     }
@@ -80,27 +81,68 @@ class Users extends Component {
                 </label>
             </div>
         )
-        if (!this.props.isAuthorization)
-            return (
-                <div className="users">
-                    {
-                        this.state.loaded &&
-                        (
-                            this.state.avatar ?
-                            haveAvatar :
-                            noAvatar
-                        )
-                    }
-                    <div className="user">
-                        <div className="username">
-                            {username}
-                        </div>
-                        <div className="logout" onClick={this.Logout}>
-                            登出
+        const haveAvatarMobile = (
+            <div className="avatar u-avatar-m">
+                <label>
+                    <img src={this.state.avatar} alt="" />
+                    <input type="file" ref={this.imgInput} name="filename" style={inputStyle} accept="image/gif, image/jpeg, image/png" onChange={this.handleChange} />
+                </label>
+            </div>
+        )
+        const noAvatarMobile = (
+            <div className="no-avatar u-avatar-m">
+                <label>
+                    {fristname}
+                    <input type="file" name="filename" ref={this.imgInput} style={inputStyle} accept="image/gif, image/jpeg, image/png" onChange={this.handleChange} />
+                </label>
+            </div>
+        )
+        if (!this.props.isAuthorization) {
+            if (ismobile) {
+                return (
+                    <div className="users">
+                        {
+                            this.state.loaded &&
+                            (
+                                this.state.avatar ?
+                                    haveAvatarMobile :
+                                    noAvatarMobile
+                            )
+                        }
+                        <div className="user">
+                            <div className="username">
+                                {username}
                             </div>
+                            <div className="logout" onClick={this.Logout}>
+                                登出
+                            </div>
+                        </div>
                     </div>
-                </div>
-            )
+                )
+            } else {
+                return (
+                    <div className="users">
+                        {
+                            this.state.loaded &&
+                            (
+                                this.state.avatar ?
+                                    haveAvatar :
+                                    noAvatar
+                            )
+                        }
+                        <div className="user">
+                            <div className="username">
+                                {username}
+                            </div>
+                            <div className="logout" onClick={this.Logout}>
+                                登出
+                                </div>
+                        </div>
+                    </div>
+                )
+            }
+        }
+
     }
 }
 
@@ -114,4 +156,4 @@ Users.contextTypes = {
     router: PropTypes.object
 }
 
-export default connect(mapStateToProps, { getAvatar, setCurrentUser ,setUserAvatar})(Users)
+export default connect(mapStateToProps, { getAvatar, setCurrentUser, setUserAvatar })(Users)
