@@ -23,8 +23,8 @@ app.use(cors())
 app.use('/api/users',users)
 // app.use('/public/uploadImg',avatar)
 
-const key = fs.readFileSync('/etc/letsencrypt/live/shenfeng1945.xyz/privkey.pem','utf8');
-var cert = fs.readFileSync('/etc/letsencrypt/live/shenfeng1945.xyz/cert.pem','utf8');
+const key = fs.readFileSync('/usr/local/nginx/conf/2_shenfeng1945.cn.key','utf8');
+var cert = fs.readFileSync('/usr/local/nginx/conf/1_shenfeng1945.cn_bundle.crt','utf8');
 var options = {
     key: key,
     cert: cert
