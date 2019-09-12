@@ -8,7 +8,6 @@ router.get('/:avatar',(req,res,next)=>{
     fs.readFileSync(__dirname+'/'+avatar,(err,data)=>{
        res.writeHead(200,{'Content-Type':'image/jpeg'})
     //    res.write(data, 'binary');
-       console.log(data)
        res.end(data)
     })
 })
