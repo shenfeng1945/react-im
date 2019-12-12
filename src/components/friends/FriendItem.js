@@ -38,14 +38,7 @@ class FriendItem extends Component {
         )
         return (
             <li onClick={() => this.props.selectCurrentUser(currIndex)} className={classNames({ active })}>
-                {
-                    this.state.loaded &&
-                    (
-                        this.state.avatar ?
-                            haveAvatar :
-                            noAvatar
-                    )
-                }
+                {this.state.avatar ? haveAvatar : noAvatar}
                 <div className="friend">
                     <div className="name">{this.props.item.name}</div>
                     <div className="lastMsg">{

@@ -101,14 +101,7 @@ class Users extends Component {
             if (ismobile()) {
                 return (
                     <div className="users">
-                        {
-                            this.state.loaded &&
-                            (
-                                this.state.avatar ?
-                                    haveAvatarMobile :
-                                    noAvatarMobile
-                            )
-                        }
+                        {this.state.avatar ? haveAvatarMobile : noAvatarMobile}
                         <div className="user">
                             <div className="username">
                                 {username}
