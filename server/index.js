@@ -25,17 +25,17 @@ mongoose.connect(
 
 app.use(bodyParser.json());
 app.use(cors());
-//app.use(express.static("public"));
+app.use(express.static("public"));
 
 app.use("/api/users", users);
-//app.use("/public/uploadImg", avatar);
+app.use("/public/uploadImg", avatar);
 
-const key = fs.readFileSync("/etc/ssl/shenfeng1945.key", "utf8");
-var cert = fs.readFileSync("/etc/ssl/shenfeng1945.crt", "utf8");
+// const key = fs.readFileSync("/etc/ssl/shenfeng1945.key", "utf8");
+// var cert = fs.readFileSync("/etc/ssl/shenfeng1945.crt", "utf8");
 var options = {
-  key: key,
-  cert: cert,
+  // key: key,
+  // cert: cert,
 };
 
-// app.listen(6061, () => console.log("localhost:6061"));
-https.createServer(options, app).listen(6061);
+app.listen(6061, () => console.log("localhost:6061"));
+// https.createServer(options, app).listen(6061);
