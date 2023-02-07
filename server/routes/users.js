@@ -2,8 +2,7 @@ const express = require("express");
 const User = require("../models/user");
 const upload = require("../middleware/multer");
 const router = express.Router();
-// const IpUrl = "https://shenfeng1945.cn/react-im-server/public";
-const IpUrl = "https://react-im-server.onrender.com/public";
+const IpUrl = "https://shenfeng2023.cn/react-im-server/public";
 
 router.post("/signup", (req, res, next) => {
   const errors = {};
